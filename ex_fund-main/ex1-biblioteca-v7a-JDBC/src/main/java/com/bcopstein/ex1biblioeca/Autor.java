@@ -1,12 +1,18 @@
 package com.bcopstein.ex1biblioeca;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Autor {
     
     @Id
-    private long Id;
+    private long id;
     private String nome;
     private LocalDate dataNascimento;
 

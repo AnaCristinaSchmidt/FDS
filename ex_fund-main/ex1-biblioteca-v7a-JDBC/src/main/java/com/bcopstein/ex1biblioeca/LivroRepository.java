@@ -1,15 +1,14 @@
 package com.bcopstein.ex1biblioeca;
 
 import java.util.List;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Long> {
-    List<Livro> findByAutor(String autor);
+    List<Livro> findByAutorNome(String nome);
+    List<Livro> findByAutorNomeAndAno(String nome, int ano);
     Livro findByTitulo(String titulo);
-}
-
-@Repository
-public interface AutorRepository extends JpaRepository<Autor, Long> {
-    Optional<Autor> findByNome(String nome);
+    List<Livro> findByAno(int ano);
+    List<Livro> findByAnoLessThan(int ano);
 }

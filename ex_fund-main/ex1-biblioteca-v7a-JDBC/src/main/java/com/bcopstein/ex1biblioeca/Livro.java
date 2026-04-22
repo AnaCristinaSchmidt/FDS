@@ -1,16 +1,39 @@
 package com.bcopstein.ex1biblioeca;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 @Entity
 public class Livro {
 
     @Id
     private long id;
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
     private String titulo;
     private int ano;
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
-    @JsonIgnoreProprieties("livros")
+    @JsonIgnoreProperties("livros")
     private Autor autor;
 
     public Livro() { }
